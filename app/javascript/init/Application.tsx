@@ -4,7 +4,7 @@ const Application: FC<{ initData: any }> = ({ initData }) => {
   console.log(initData);
   return (
     <React.Fragment>
-      Init Data: {initData.hoge.toString()}
+      Init Data: {initData.path}
     </React.Fragment>
   );
 };
