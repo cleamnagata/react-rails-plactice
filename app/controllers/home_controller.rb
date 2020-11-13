@@ -1,6 +1,17 @@
 class HomeController < StaticController
+  before_action :logged_in_user
+
   def index
     super
-    @data = { path: '/home' }
+    @data = { user: @current_user.as_json(only: [:id, :name, :email]) }
+  end
+
+  private
+
+  # ログイン済みユーザーかどうか確認
+  def logged_in_user
+    unless logged_in?
+      redirect_to login_url
+    end
   end
 end
