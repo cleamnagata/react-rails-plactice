@@ -3,7 +3,10 @@ class HomeController < StaticController
 
   def index
     super
-    @data = { user: @current_user.as_json(only: [:id, :name, :email]) }
+    @data = {
+        user: @current_user.as_json(only: [:id, :name, :email]),
+        path: '/home'
+    }
   end
 
   private
